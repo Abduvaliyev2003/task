@@ -10,8 +10,8 @@ class History extends Model
 {
     use HasFactory;
 
-    protected $table = 'histories';
-    protected $guarded = [];
+    protected $table = 'home_histories';
+    protected $guard = [];
 
 
     
@@ -23,5 +23,10 @@ class History extends Model
     public function catergories():BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function types():BelongsTo
+    { 
+        return $this->belongsTo(Type::class);
     }
 }

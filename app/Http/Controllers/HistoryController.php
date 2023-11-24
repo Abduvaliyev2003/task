@@ -13,7 +13,12 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        //
+        $data = History::with('catergories', 'types')->paginate(request('limit') ?? 20);
+
+        return [
+           'data' => $data ?? [],
+           'status' => true
+        ];
     }
 
     /**

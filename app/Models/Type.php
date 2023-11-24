@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class Type extends Model
 {
     use HasFactory;
 
-    public $table = 'categories';
+    protected $table = 'types';
     protected $guard = [];
-
-
-    public function histories(): HasMany
+    
+    public function histroies():HasMany
     {
         return $this->hasMany(History::class);
     }
