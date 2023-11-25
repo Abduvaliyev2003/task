@@ -16,11 +16,13 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-                <home-component   
-                   :data="allHistory"
+                {{-- <home-component   
+                   :data="all"
                 >
                     
-                </home-component>
+                </home-component> --}}
+                <create-componant>
+                </create-componant>
             </div>
         </div>
     </div>

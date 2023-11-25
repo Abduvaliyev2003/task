@@ -18,8 +18,15 @@
     export default {
         props: ["data"],
         mounted() {
-            console.log(this.data)
+           
             console.log('Component mounted.')
+            console.log(this.data)
+        },
+        methods:{
+           
         }
-    }
+        
+       
+    };
+    
 </script>

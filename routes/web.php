@@ -23,3 +23,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/history', [HistoryController::class , 'index'])->name('all');
+
+Route::resource('history', HistoryController::class);
+

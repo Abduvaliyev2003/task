@@ -17,8 +17,10 @@ const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import HomeComponent from './components/HomeComponent.vue';
+import CreatComponent from './components/CreateComponent.vue';
 app.component('example-component', ExampleComponent);
 app.component('home-component', HomeComponent);
+app.component('create-componant', CreatComponent);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -36,18 +38,16 @@ app.component('home-component', HomeComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-
 app.mixin({
-    data () {
+    data() {
         return {
-            allHistory:null
-        }
+            all: null
+        };
     },
     created() {
         this.fetchHistoryList();
-        console.log(this.allHistory);
     },
-    
+
     methods: {
         fetchHistoryList() {
             axios.get('/history', {
@@ -55,14 +55,16 @@ app.mixin({
                     'Content-Type': 'application/json',
                 },
             }).then(response => {
-               this.allHistory = response ;
-
-             
-            });
-        }, 
-    
+                console.log(response)
+                this.all = response.data;
+                console.log(this.all)
+                // Move the log here or perform any other action with this.all
+            }).catch(error => {
+                console.error('Error fetching history list:', error);
+            });;
+        },
     }
-
 });
+
 
 app.mount('#app');
